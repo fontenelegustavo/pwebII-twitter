@@ -1,7 +1,7 @@
 import "./style.css";
 
 export default function HomePost(props) {
-
+    const username = props.username ? props.username : "nobody"
     return (
         <div
             className="post max-w-sm min-w-100 bg-white rounded-lg shadow-md p-6 flex items-start justify-between gap-2"
@@ -17,7 +17,7 @@ export default function HomePost(props) {
                     <div className="text-xl font-bold mb-2">{props.title}</div>
                 </div>
                 <div className="text-gray-600">{props.text}</div>
-                <div className="text-sm text-gray-500 mt-2">Por {props.username}</div>
+                <div className="text-sm text-gray-500 mt-2">Por {username}</div>
             </div>
             <button
                 className="ml-2 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition cursor-pointer"

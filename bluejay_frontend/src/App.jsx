@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import HomePage from "./Pages/HomePage/HomePage";
-import PostPage from "./Pages/PostPage/PostPage";
-import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import HomePage from "./pages/HomePage/HomePage";
+import PostPage from "./pages/PostPage/PostPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 export default function App() {
     return (
