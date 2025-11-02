@@ -1,7 +1,13 @@
 import express from "express";
 import dbConnectToDB from "./config/dbConnection.js";
+import routes from "./routers/index.js";
+import cors from 'cors'
 
 const app = express();
+routes(app);
+//middleware
+app.use(cors())
+
 const connection = await dbConnectToDB();
 
 connection.on("error", (error) => {
