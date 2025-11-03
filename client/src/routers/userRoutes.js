@@ -9,7 +9,7 @@ userRouter.get("/users", UserController.getUsers);
 userRouter.get("/users/:id", UserController.getUserByID);
 
 //cria post
-userRouter.post('/auth', UserController.createUser);
+userRouter.post('/users', UserController.createUser);
 
 //deleta post pelo id
 userRouter.delete("/users/:id", UserController.deleteUserByID)
