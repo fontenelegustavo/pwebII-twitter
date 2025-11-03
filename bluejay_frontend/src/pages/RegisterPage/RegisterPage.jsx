@@ -16,76 +16,80 @@ export default function RegisterPage() {
     });
     return (
         <>
-            <div className="flex flex-row justify-center">
-                <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-                <h1 className="text-2xl font-bold text-center">Criar conta</h1>
-                <Formik
-                    initialValues={{ username: "", password: "" }}
-                    validationSchema={schema}
-                    onSubmit={async (userRegistry) => {
-                        try {
-                            await api.post("/users", userRegistry);
-                            // redireciona para a home após registro
-                            navigate("/");
-                        } catch (err) {
-                            alert("Erro ao criar usuário");
-                        }
-                    }}
-                >
-                    {({ isSubmitting }) => (
-                        <Form
-                            className="flex flex-col gap-3"
-                            autoComplete="off"
-                        >
-                            <div>
-                                <label className="text-sm font-medium">
-                                    Usuário
-                                </label>
-                                <Field
-                                    name="username"
-                                    placeholder="Nome de usuário"
-                                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                                />
-                                <ErrorMessage name="username">
-                                    {(msg) => (
-                                        <div className="text-sm text-red-600 mt-1">
-                                            {msg}
-                                        </div>
-                                    )}
-                                </ErrorMessage>
-                            </div>
-
-                            <div>
-                                <label className="text-sm font-medium">
-                                    Senha
-                                </label>
-                                <Field
-                                    name="password"
-                                    type="password"
-                                    placeholder="Senha"
-                                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                                    autoComplete="off"
-                                />
-                                <ErrorMessage name="password">
-                                    {(msg) => (
-                                        <div className="text-sm text-red-600 mt-1">
-                                            {msg}
-                                        </div>
-                                    )}
-                                </ErrorMessage>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="mt-2 bg-indigo-600 text-white rounded px-4 py-2 hover:bg-indigo-700 disabled:opacity-60"
-                                disabled={isSubmitting}
+            <div className="flex flex-row justify-center px-4 py-8">
+                <div className="max-w-md w-full bg-slate-900 text-slate-100 rounded-2xl shadow-lg p-8 border border-gray-800">
+                    <h1 className="text-2xl font-bold text-center text-cyan-300">
+                        Criar conta
+                    </h1>
+                    <Formik
+                        initialValues={{ username: "", password: "" }}
+                        validationSchema={schema}
+                        onSubmit={async (userRegistry) => {
+                            try {
+                                await api.post("/users", userRegistry);
+                                // redireciona para a home após registro
+                                navigate("/");
+                            } catch (err) {
+                                alert("Erro ao criar usuário");
+                            }
+                        }}
+                    >
+                        {({ isSubmitting }) => (
+                            <Form
+                                className="flex flex-col gap-3"
+                                autoComplete="off"
                             >
-                                {isSubmitting ? "Criando..." : "Criar conta"}
-                            </button>
-                        </Form>
-                    )}
-                </Formik>
-            </div>
+                                <div>
+                                    <label className="text-sm font-medium">
+                                        Usuário
+                                    </label>
+                                    <Field
+                                        name="username"
+                                        placeholder="Nome de usuário"
+                                        className="mt-1 block w-full border border-gray-700 rounded px-3 py-2 bg-slate-800 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                                    />
+                                    <ErrorMessage name="username">
+                                        {(msg) => (
+                                            <div className="text-sm text-red-600 mt-1">
+                                                {msg}
+                                            </div>
+                                        )}
+                                    </ErrorMessage>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium">
+                                        Senha
+                                    </label>
+                                    <Field
+                                        name="password"
+                                        type="password"
+                                        placeholder="Senha"
+                                        className="mt-1 block w-full border border-gray-700 rounded px-3 py-2 bg-slate-800 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                                        autoComplete="off"
+                                    />
+                                    <ErrorMessage name="password">
+                                        {(msg) => (
+                                            <div className="text-sm text-red-600 mt-1">
+                                                {msg}
+                                            </div>
+                                        )}
+                                    </ErrorMessage>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="mt-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded px-4 py-2 font-semibold hover:from-blue-700 hover:to-cyan-400 disabled:opacity-60"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting
+                                        ? "Criando..."
+                                        : "Criar conta"}
+                                </button>
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
             </div>
         </>
     );

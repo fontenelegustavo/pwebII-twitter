@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
-
-*{
-    font-family: Arial;
+* {
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-.form{
-    margin: 50px 50px 0px -50px;
+.form {
+    margin: 24px 12px 0px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title {
+    color: #0ea5e9; /* primary blue */
+    font-weight: 700;
 }
