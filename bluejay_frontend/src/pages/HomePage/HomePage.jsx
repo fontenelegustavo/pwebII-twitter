@@ -27,7 +27,7 @@ export default function HomePage() {
                             id={post._id}
                             title={post.title}
                             text={post.text}
-                            username={post.user.username}
+                            username={post.user?.username}
                             onClick={() => {
                                 navigate(`/post/${post._id}`);
                             }}

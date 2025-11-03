@@ -35,10 +35,10 @@ class PostController {
     //cria post
     static async createPost(req, res) {
         try {
-            if (req.body.username == null) {
+            if (req.body.user == null) {
                 const postToCreate = await post.create({
                     ...req.body,
-                    user: "6907a41b4d5c6d36825b0756",
+                    user: "69089f949a82a604af2a87c9",
                 });
                 res.status(200).json({
                     message: "post was created",
